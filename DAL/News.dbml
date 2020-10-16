@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="parset" Class="NewsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vNewsFlows" Member="vNewsFlows">
+    <Type Name="vNewsFlows">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SDate" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EDate" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsNewsFlows" Member="NewsNewsFlows">
+    <Type Name="NewsNewsFlows">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NewsCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="News_NewsNewsFlows" Member="News" ThisKey="NewsCode" OtherKey="Code" Type="News" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="NewsFlows_NewsNewsFlows" Member="NewsFlows" ThisKey="NewsFlowCode" OtherKey="Code" Type="NewsFlows" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsNewsFlows" Member="vNewsNewsFlows">
+    <Type Name="vNewsNewsFlows">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NewsCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsFlowsKeywords" Member="NewsFlowsKeywords">
+    <Type Name="NewsFlowsKeywords">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeywordCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NewsFlows_NewsFlowsKeywords" Member="NewsFlows" ThisKey="NewsFlowCode" OtherKey="Code" Type="NewsFlows" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsFlowsKeywords" Member="vNewsFlowsKeywords">
+    <Type Name="vNewsFlowsKeywords">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTempNews" Member="vTempNews">
+    <Type Name="vTempNew">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTopNews" Member="vTopNews">
+    <Type Name="vTopNew">
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedNewsCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LanguageCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNews" Member="vNews">
+    <Type Name="vNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="NewsDate" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CatName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GatherType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Language" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HCResourceSiteCatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsDate2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HCLevelCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vImportantKeywords" Member="vImportantKeywords">
+    <Type Name="vImportantKeywords">
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KeywordCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeywordCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="News">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="HCResourceSiteCatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HCPriorityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Urgent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Url" Type="System.String" DbType="nVarChar(500)" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="HCLevelCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResouceSiteCatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HCGatherTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShowInFirstPage" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LanguageCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ConvertedContent" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ViewCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZoneCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="News_NewsNewsFlows" Member="NewsNewsFlows" ThisKey="Code" OtherKey="NewsCode" Type="NewsNewsFlows" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsFlows" Member="NewsFlows">
+    <Type Name="NewsFlows">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ShowOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NewsFlows_NewsNewsFlows" Member="NewsNewsFlows" ThisKey="Code" OtherKey="NewsFlowCode" Type="NewsNewsFlows" />
+      <Association Name="NewsFlows_NewsFlowsKeywords" Member="NewsFlowsKeywords" ThisKey="Code" OtherKey="NewsFlowCode" Type="NewsFlowsKeywords" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsflowNews" Member="NewsflowNews">
+    <Type Name="NewsflowNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vKeywordsByTime" Member="vKeywordsByTimes">
+    <Type Name="vKeywordsByTime">
+      <Column Name="NewsCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NewsDay" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRandPicNews" Member="vRandPicNews">
+    <Type Name="vRandPicNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceSiteCatCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsflowNews" Member="vNewsflowNews">
+    <Type Name="vNewsflowNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsByCatCode" Member="vNewsByCatCodes">
+    <Type Name="vNewsByCatCode">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsByKeywords" Member="vNewsByKeywords">
+    <Type Name="vNewsByKeywords">
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeywordCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLatestNews" Member="vLatestNews">
+    <Type Name="vLatestNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceSiteCatCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImgUrl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLatestPicNews" Member="vLatestPicNews">
+    <Type Name="vLatestPicNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ImgUrl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsEmails" Member="NewsEmails">
+    <Type Name="NewsEmail">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SenderIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmailLists" Member="EmailLists">
+    <Type Name="EmailLists">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SendDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HCSendTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersianDate" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNewsEmailItems" Member="vNewsEmailItems">
+    <Type Name="vNewsEmailItems">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VisitCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmailListSends" Member="EmailListSends">
+    <Type Name="EmailListSends">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmailListCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsImages" Member="NewsImages">
+    <Type Name="NewsImages">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NewsCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImgUrl" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spGetRelatedNewsFlows" Method="spGetRelatedNewsFlows">
+    <Parameter Name="NewsCode" Parameter="newsCode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetRelatedNewsFlowsResult">
+      <Column Name="NewsFlowCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeyCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spReportNewsStatistics" Method="spReportNewsStatistics">
+    <Parameter Name="RepType" Parameter="repType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartNewsDate" Parameter="startNewsDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndNewsDate" Parameter="endNewsDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Source" Parameter="source" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CountryCode" Parameter="countryCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageCode" Parameter="languageCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCResourceSiteCatCode" Parameter="hCResourceSiteCatCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCLevelCode" Parameter="hCLevelCode" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetNewsflowKeywords" Method="spGetNewsflowKeywords">
+    <Parameter Name="NewsflowCode" Parameter="newsflowCode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetNewsflowKeywordsResult">
+      <Column Name="NewsCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeywordCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSearchNews" Method="spSearchNews">
+    <Parameter Name="keyword" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spSearchNewsResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceSiteCatCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetNotSentNewsEmails" Method="spGetNotSentNewsEmails">
+    <Parameter Name="PersianDate" Parameter="persianDate" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="spGetNotSentNewsEmailsResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertNews" Method="spInsertNews">
+    <Parameter Name="ZoneCode" Parameter="zoneCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SiteCatCode" Parameter="siteCatCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCResourceSiteCatCode" Parameter="hCResourceSiteCatCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Url" Parameter="url" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NewsDate" Parameter="newsDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Contents" Parameter="contents" Type="System.String" DbType="NText" />
+    <Parameter Name="ImgUrl" Parameter="imgUrl" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="VideoUrl" Parameter="videoUrl" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PicName" Parameter="picName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="LanguageCode" Parameter="languageCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="imgWidth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="imgHeight" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewsCode" Parameter="newsCode" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

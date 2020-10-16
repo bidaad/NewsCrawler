@@ -1,0 +1,16 @@
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.Properties.Resources.resources
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.ShowLog.resources
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.csproj.GenerateResource.Cache
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.exe
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.pdb
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\ParsetCrawler.exe.config
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\ParsetCrawler.exe.manifest
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\ParsetCrawler.application
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\ParsetCrawler.exe
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\ParsetCrawler.pdb
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\bin\Release\libpdf.dll
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.exe.manifest
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.application
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.csprojAssemblyReference.cache
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.csproj.CoreCompileInputs.cache
+D:\Khabar\KhabarAU\KhabarAU\KhabarAU\obj\Release\ParsetCrawler.csproj.CopyComplete

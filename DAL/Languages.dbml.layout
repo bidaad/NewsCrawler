@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Languages">
+  <DataContextMoniker Name="/LanguagesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="aa54cdaa-6b50-4c40-a645-4ccb8691868c" isExpanded="false" absoluteBounds="3.375, 2, 2, 0.45">
+      <DataClassMoniker Name="/LanguagesDataContext/vLanguages" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08508bc6-dc2d-4030-8532-c09793f78142" absoluteBounds="3.3899999999999997, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48262838-a78a-4b0b-9150-8a2a00770be8" absoluteBounds="3.375, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LanguagesDataContext/Languages" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01605021-039e-4e19-bc7a-b57608b827bf" absoluteBounds="3.3899999999999997, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

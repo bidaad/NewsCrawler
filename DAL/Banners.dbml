@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parset" Class="BannersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=server;Initial Catalog=Parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BannerPositions" Member="BannerPositions">
+    <Type Name="BannerPositions">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BannerPositions_Banners" Member="Banners" ThisKey="Code" OtherKey="PositionCode" Type="Banners" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Banners" Member="Banners">
+    <Type Name="Banners">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BanFile" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TargetUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HCTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="PositionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ViewNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClickNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BannerPositions_Banners" Member="BannerPositions" ThisKey="PositionCode" OtherKey="Code" Type="BannerPositions" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vBannerPositions" Member="vBannerPositions">
+    <Type Name="vBannerPositions">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vBanners" Member="vBanners">
+    <Type Name="vBanners">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BanFile" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TargetUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BannerType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BannerPosition" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ViewNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClickNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PositionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keywords" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HCTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

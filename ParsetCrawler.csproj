@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6DC86499-FB8A-4045-80F7-57E3F11C723C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ParsetCrawler</RootNamespace>
+    <AssemblyName>ParsetCrawler</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>B4C867BB239ED73F86D04156A01219842DE6A758</ManifestCertificateThumbprint>
+    <ManifestKeyFile>KhabarAU_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>D:\Publish\KhabarAU\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKA.Web.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Website\Bin\AKA.Web.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="libpdf">
+      <HintPath>bin\Debug\libpdf.dll</HintPath>
+    </Reference>
+    <Reference Include="RssToolkit, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Website\Bin\RssToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.Design, Version=2009.2.826.20, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Website\Bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2009.2.826.20, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Website\Bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="URLRewriter, Version=1.0.2628.32113, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Website\Bin\URLRewriter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BOL\AccessLevel\BOLAccessGroups.cs" />
+    <Compile Include="BOL\AccessLevel\BOLGroupResources.cs" />
+    <Compile Include="BOL\AccessLevel\BOLGroupZones.cs" />
+    <Compile Include="BOL\AccessLevel\BOLResources.cs" />
+    <Compile Include="BOL\AccessLevel\BOLUserGroups.cs" />
+    <Compile Include="BOL\AccessLevel\BOLUserLogs.cs" />
+    <Compile Include="BOL\AccessLevel\BOLUsers.cs" />
+    <Compile Include="BOL\BannerPositions\BOLBannerPositions.cs" />
+    <Compile Include="BOL\Banners\BOLBanners.cs" />
+    <Compile Include="BOL\BaseBOLClass.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLAccessGroup.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLGroupResources.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLGroupZones.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLResources.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLUserGroups.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLUserLogs.cs" />
+    <Compile Include="BOL\BaseBOL\AccessLevel\BaseBOLUsers.cs" />
+    <Compile Include="BOL\BaseBOL\BannerPositions\BaseBOLBannerPositions.cs" />
+    <Compile Include="BOL\BaseBOL\Banners\BaseBOLBanners.cs" />
+    <Compile Include="BOL\BaseBOL\BaseBOLHardCode.cs" />
+    <Compile Include="BOL\BaseBOL\Customers\BaseBOLCustomers.cs" />
+    <Compile Include="BOL\BaseBOL\DataSources\BaseBOLResourceSites.cs" />
+    <Compile Include="BOL\BaseBOL\DataSources\BaseBOLResourseSiteCats.cs" />
+    <Compile Include="BOL\BaseBOL\EntityRelations\BaseBOLEntityRelations.cs" />
+    <Compile Include="BOL\BaseBOL\ErrorLogs\BaseBOLErrorLogs.cs" />
+    <Compile Include="BOL\BaseBOL\GarbageWords\BaseBOLGarbageWords.cs" />
+    <Compile Include="BOL\BaseBOL\Keywords\BaseBOLEntityKeywords.cs" />
+    <Compile Include="BOL\BaseBOL\Keywords\BaseBOLKeywords.cs" />
+    <Compile Include="BOL\BaseBOL\Keywords\BaseBOLSpecialKeywords.cs" />
+    <Compile Include="BOL\BaseBOL\Languages\BaseBOLLanguages.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNews.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNewsflowNews.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNewsFlows.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNewsFlowsKeywords.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNewsKeywords.cs" />
+    <Compile Include="BOL\BaseBOL\News\BaseBOLNewsNewsFlows.cs" />
+    <Compile Include="BOL\BaseInfo\BOLHardCode.cs" />
+    <Compile Include="BOL\BOLEntityRelations.cs" />
+    <Compile Include="BOL\BOLItemRates.cs" />
+    <Compile Include="BOL\Crawler\BOLCrawler.cs" />
+    <Compile Include="BOL\Customers\BOLCustomers.cs" />
+    <Compile Include="BOL\DataResources\BOLResourceSites.cs" />
+    <Compile Include="BOL\DataResources\BOLResourseSiteCats.cs" />
+    <Compile Include="BOL\ErrorLogs\BOLErrorLogs.cs" />
+    <Compile Include="BOL\GarbageWords\BOLGarbageWords.cs" />
+    <Compile Include="BOL\Keywords\BOLEntityKeywords.cs" />
+    <Compile Include="BOL\Keywords\BOLKeywords.cs" />
+    <Compile Include="BOL\Keywords\BOLNewsKeywords.cs" />
+    <Compile Include="BOL\Keywords\BOLSpecialKeywords.cs" />
+    <Compile Include="BOL\Languages\BOLLanguages.cs" />
+    <Compile Include="BOL\Logs\BOLLogs.cs" />
+    <Compile Include="BOL\News\BOLNews.cs" />
+    <Compile Include="BOL\News\BOLNewsflowNews.cs" />
+    <Compile Include="BOL\News\BOLNewsFlows.cs" />
+    <Compile Include="BOL\News\BOLNewsFlowsKeywords.cs" />
+    <Compile Include="BOL\News\BOLNewsNewsFlows.cs" />
+    <Compile Include="Common\AccessListStruct.cs" />
+    <Compile Include="Common\CheckPermissionHttpModule.cs" />
+    <Compile Include="Common\Converter.cs" />
+    <Compile Include="Common\Crawler.cs" />
+    <Compile Include="Common\CustomException.cs" />
+    <Compile Include="Common\DateTimeMethods.cs" />
+    <Compile Include="Common\GetHTML.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Messages.cs" />
+    <Compile Include="Common\Tools.cs" />
+    <Compile Include="Common\ViewForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DAL\AccessLevel1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccessLevel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Banners1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Banners.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Customers1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customers.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DAL.cs" />
+    <Compile Include="DAL\DBTools1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTools.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\EmailTemplates.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailTemplates.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\EntityRelations1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityRelations.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Errors1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Errors.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\HardCode1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HardCode.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ItemPrices.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemPrices.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Keywords1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Keywords.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Languages1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Languages.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Logs1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logs.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\News1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>News.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Newspapers.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Newspapers.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PersianWords1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersianWords.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ResourceSites1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceSites.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Users1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowLog.Designer.cs">
+      <DependentUpon>ShowLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="DAL\AccessLevel.dbml.layout">
+      <DependentUpon>AccessLevel.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Banners.dbml.layout">
+      <DependentUpon>Banners.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Customers.dbml.layout">
+      <DependentUpon>Customers.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\DBTools.dbml.layout">
+      <DependentUpon>DBTools.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\EmailTemplates.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EmailTemplates.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\EntityRelations.dbml.layout">
+      <DependentUpon>EntityRelations.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Errors.dbml.layout">
+      <DependentUpon>Errors.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\HardCode.dbml.layout">
+      <DependentUpon>HardCode.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\ItemPrices.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ItemPrices.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Keywords.dbml.layout">
+      <DependentUpon>Keywords.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Languages.dbml.layout">
+      <DependentUpon>Languages.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Logs.dbml.layout">
+      <DependentUpon>Logs.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\News.dbml.layout">
+      <DependentUpon>News.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Newspapers.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Newspapers.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\PersianWords.dbml.layout">
+      <DependentUpon>PersianWords.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\ResourceSites.dbml.layout">
+      <DependentUpon>ResourceSites.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Users.dbml.layout">
+      <DependentUpon>Users.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\ItemPrices.dbml.layout">
+      <DependentUpon>ItemPrices.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\EmailTemplates.dbml.layout">
+      <DependentUpon>EmailTemplates.dbml</DependentUpon>
+    </None>
+    <None Include="DAL\Newspapers.dbml.layout">
+      <DependentUpon>Newspapers.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowLog.resx">
+      <DependentUpon>ShowLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="DAL\AccessLevel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AccessLevel1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Banners.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Banners1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Customers.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Customers1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\DBTools.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBTools1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\EntityRelations.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EntityRelations1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Errors.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Errors1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\HardCode.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>HardCode1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Keywords.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Keywords1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Languages.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Languages1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Logs.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Logs1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\News.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>News1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\PersianWords.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PersianWords1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\ResourceSites.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ResourceSites1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Users.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Users1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KhabarAU_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\ObjectDataSource\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

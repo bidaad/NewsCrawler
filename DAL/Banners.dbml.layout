@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Banners">
+  <DataContextMoniker Name="/BannersDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b564bf76-5e79-497e-91d3-65fb9b896d47" absoluteBounds="6.875, 1.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BannersDataContext/BannerPositions" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73c66ca4-1964-46fc-9825-090735a27c64" absoluteBounds="6.89, 2.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfcec58a-59d2-48b2-8179-99da1dae5cb8" absoluteBounds="4, 1.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/BannersDataContext/Banners" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a2be493-2a40-4398-9e84-321ffb03a9a9" absoluteBounds="4.015, 1.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6dd9b1e3-14bf-4b5d-89d5-465d6dc95195" isExpanded="false" absoluteBounds="6.875, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/BannersDataContext/vBannerPositions" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8ce99d3-c751-4098-bb0d-fa811edfff0d" absoluteBounds="6.89, 3.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 2.41810222720106); (6 : 2.41810222720106)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BannersDataContext/BannerPositions/BannerPositions_Banners" />
+      <nodes>
+        <classShapeMoniker Id="b564bf76-5e79-497e-91d3-65fb9b896d47" />
+        <classShapeMoniker Id="bfcec58a-59d2-48b2-8179-99da1dae5cb8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a9d289c8-6170-45e6-9faa-11657784b731" isExpanded="false" absoluteBounds="4, 4, 2, 0.45">
+      <DataClassMoniker Name="/BannersDataContext/vBanners" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14a10201-635b-430a-927e-bc3a8289fd02" absoluteBounds="4.015, 4.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

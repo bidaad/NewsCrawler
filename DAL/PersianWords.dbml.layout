@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PersianWords">
+  <DataContextMoniker Name="/PersianWordsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d61f64e7-54bd-4f61-8941-b5ece970ac94" absoluteBounds="4.625, 1.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PersianWordsDataContext/PersianWords" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e350c8e-d55e-419f-bcd2-9f61f77fde06" absoluteBounds="4.64, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

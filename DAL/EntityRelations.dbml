@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parset" Class="EntityRelationsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=server;Initial Catalog=Parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vEntityRelations" Member="vEntityRelations">
+    <Type Name="vEntityRelations">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RelatedEntityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EntityRelations" Member="EntityRelations">
+    <Type Name="EntityRelations">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedEntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HCRelatedEntityTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRelatedArticles" Member="vRelatedArticles">
+    <Type Name="vRelatedArticles">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRelatedNews" Member="vRelatedNews">
+    <Type Name="vRelatedNews">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CatName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PicName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NewsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ResourceSiteCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spGetRelatedEntities" Method="spGetRelatedEntities">
+    <Parameter Name="EntityCode" Parameter="entityCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCEntityTypeCode" Parameter="hCEntityTypeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCRelatedEntityTypeCode" Parameter="hCRelatedEntityTypeCode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetRelatedEntitiesResult">
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MatualCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSetRelatedEntities" Method="spSetRelatedEntities">
+    <Parameter Name="EntityCode" Parameter="entityCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCEntityTypeCode" Parameter="hCEntityTypeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HCRelatedEntityTypeCode" Parameter="hCRelatedEntityTypeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MatualCount" Parameter="matualCount" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

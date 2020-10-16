@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parset" Class="AccessLevelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=server;Initial Catalog=Parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UserGroups" Member="UserGroups">
+    <Type Name="UserGroups">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Users_UserGroups" Member="Users" ThisKey="UserCode" OtherKey="Code" Type="Users" IsForeignKey="true" />
+      <Association Name="AccessGroups_UserGroups" Member="AccessGroups" ThisKey="GroupCode" OtherKey="Code" Type="AccessGroups" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLevels" Member="UserLevels">
+    <Type Name="UserLevel">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LevelCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Level_UserLevel" Member="Level" ThisKey="LevelCode" OtherKey="Code" Type="Level" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Levels" Member="Levels">
+    <Type Name="Level">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Level_UserLevel" Member="UserLevels" ThisKey="Code" OtherKey="LevelCode" Type="UserLevel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupResources" Member="GroupResources">
+    <Type Name="GroupResources">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AccessGroups_GroupResources" Member="AccessGroups" ThisKey="GroupCode" OtherKey="Code" Type="AccessGroups" IsForeignKey="true" />
+      <Association Name="Resources_GroupResources" Member="Resources" ThisKey="ResourceCode" OtherKey="Code" Type="Resources" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vResources" Member="vResources">
+    <Type Name="vResources">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EngName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BaseID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MasterCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vGroupResources" Member="vGroupResources">
+    <Type Name="vGroupResources">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ResourceCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserLogs" Member="vUserLogs">
+    <Type Name="vUserLogs">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Entity" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ActDate" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ActTime" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLogs" Member="UserLogs">
+    <Type Name="UserLogs">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EntityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HCUserActionCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Users_UserLogs" Member="Users" ThisKey="UserCode" OtherKey="Code" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vAccessGroups" Member="vAccessGroups">
+    <Type Name="vAccessGroups">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LevelName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DockState" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Users_UserGroups" Member="UserGroups" ThisKey="Code" OtherKey="UserCode" Type="UserGroups" />
+      <Association Name="Users_UserLogs" Member="UserLogs" ThisKey="Code" OtherKey="UserCode" Type="UserLogs" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupZones" Member="GroupZones">
+    <Type Name="GroupZones">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZoneCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AccessGroups_GroupZones" Member="AccessGroups" ThisKey="GroupCode" OtherKey="Code" Type="AccessGroups" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vGroupZones" Member="vGroupZones">
+    <Type Name="vGroupZones">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUsers" Member="vUsers">
+    <Type Name="vUsers">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(201)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Activity" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccessGroups" Member="AccessGroups">
+    <Type Name="AccessGroups">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="HCLevelCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IGroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AccessGroups_UserGroups" Member="UserGroups" ThisKey="Code" OtherKey="GroupCode" Type="UserGroups" />
+      <Association Name="AccessGroups_GroupResources" Member="GroupResources" ThisKey="Code" OtherKey="GroupCode" Type="GroupResources" />
+      <Association Name="AccessGroups_GroupZones" Member="GroupZones" ThisKey="Code" OtherKey="GroupCode" Type="GroupZones" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserGroups" Member="vUserGroups">
+    <Type Name="vUserGroups">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IGroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Resources" Member="Resources">
+    <Type Name="Resources">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EngName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MasterCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditPath" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BaseID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BasicAccessType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Ordering" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Resources_GroupResources" Member="GroupResources" ThisKey="Code" OtherKey="ResourceCode" Type="GroupResources" />
+      <Association Name="Resources_Resources" Member="Resources1" ThisKey="Code" OtherKey="MasterCode" Type="Resources" />
+      <Association Name="Resources_Resources" Member="Resource1" ThisKey="MasterCode" OtherKey="Code" Type="Resources" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserAccess" Member="vUserAccesses">
+    <Type Name="vUserAccess">
+      <Column Name="UserCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AccessType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HCLevelCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ordering" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_GetMultipleAccess" Method="sp_GetMultipleAccess">
+    <Parameter Name="paramAccessTypeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paramGroupCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="paramMasterCode" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetMultipleAccessResult">
+      <Column Name="GroupCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="parset" Class="ResourceSitesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vResourceSites" Member="vResourceSites">
+    <Type Name="vResourceSites">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LangName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Entity" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Zone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRandDataResources" Member="vRandDataResources">
+    <Type Name="vRandDataResources">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResourseSiteCats" Member="ResourseSiteCats">
+    <Type Name="ResourseSiteCats">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResouseSiteCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RssUrl" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RssIsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ResourceSites_ResourseSiteCats" Member="ResourceSites" ThisKey="ResouseSiteCode" OtherKey="Code" Type="ResourceSites" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResourceSites" Member="ResourceSites">
+    <Type Name="ResourceSites">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BaseSite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RELink" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="REDetail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="REImage" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="REVideo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkDomainName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HCEncodingTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LanguageCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ZoneCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaseURL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="LogoUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="ResourceSites_ResourseSiteCats" Member="ResourseSiteCats" ThisKey="Code" OtherKey="ResouseSiteCode" Type="ResourseSiteCats" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vResourseSiteCats" Member="vResourseSiteCats">
+    <Type Name="vResourseSiteCats">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResouseSiteCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CatName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ActiveCat" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BaseSite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RELink" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="REDetail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="REImage" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LinkDomainName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HCEncodingTypeCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LanguageCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HCEntityTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ZoneCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaseURL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CatCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="RssUrl" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RssIsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="REVideo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

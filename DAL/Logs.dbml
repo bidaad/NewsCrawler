@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parset" Class="LogsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=server;Initial Catalog=Parset;Persist Security Info=True;User ID=sa" SettingsObjectName="ParsetCrawler.Properties.Settings" SettingsPropertyName="ParsetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Logs" Member="Logs">
+    <Type Name="Logs">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserAgent" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Query" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="UserInfo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Host" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="AbsolutePath" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="LogDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Referrer" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spInsertLog" Method="spInsertLog">
+    <Parameter Name="UserAgent" Parameter="userAgent" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Query" Parameter="query" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="UserInfo" Parameter="userInfo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Host" Parameter="host" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AbsolutePath" Parameter="absolutePath" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="LogDateTime" Parameter="logDateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Referrer" Parameter="referrer" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Result" Parameter="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

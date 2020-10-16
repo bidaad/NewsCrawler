@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBTools">
+  <DataContextMoniker Name="/DBToolsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c99f360c-0ff4-47af-b10c-32c0cf843722" absoluteBounds="5.875, 2.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DBToolsDataContext/CrawlManager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d465cfb-ce0d-445b-ab29-d6a42398c9f0" absoluteBounds="5.89, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7677740a-a134-4c93-a930-2d91761bcaf9" absoluteBounds="5.875, 4.25, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/DBToolsDataContext/CrawlLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d5339d1-da9f-455d-9034-a848ae5c6b91" absoluteBounds="5.89, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10ece25c-0d4d-4b77-ade9-6bd2be5ef828" absoluteBounds="2.875, 2.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBToolsDataContext/ItemRates" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c231772-31af-4336-a6e9-8dffb7eb7fbf" absoluteBounds="2.8899999999999997, 2.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
